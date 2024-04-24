@@ -9,8 +9,8 @@
 ```bash
 pip install -r requirements.txt
 ```
-2. Execute `translator and summarizer.py` to open up the UI using the following command:
+2. Execute `translator_and_summarizer.py` to open up the UI using the following command:
 
 ```bash
-streamlit run translator and summarizer.py
+streamlit run translator_and_summarizer.py
 ```
