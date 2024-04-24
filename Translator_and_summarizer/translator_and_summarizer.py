@@ -117,7 +117,7 @@ def main_func():
     file_extension = uploaded_file.name.split(".")[-1]
     print(file_extension)
     print(uploaded_file.name.split(".")[0])
-    if file_extension=="mp4": #if it's a video call  extract_from_video() 
+    if file_extension=="mp4" or file_extension=="mpeg4": #if it's a video call  extract_from_video() 
         trans, resp=extract_from_video(uploaded_file)
     elif file_extension=="mp3":
         trans, resp=use_audio(uploaded_file) #if it's a audio call  use_audio() 
