@@ -4,12 +4,12 @@
 
 
 ## Usage
-1. Run `requirements.txt` (requirements.txt) to install the dependencies.
+1. Run `requirements.txt` [requirements.txt] to install the dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
-2. Execute `translator_and_summarizer.py` (translator_and_summarizer.py)to open up the UI using the following command:
+2. Execute `translator_and_summarizer.py` [translator_and_summarizer.py] to open up the UI using the following command:
 
 ```bash
 streamlit run translator_and_summarizer.py
