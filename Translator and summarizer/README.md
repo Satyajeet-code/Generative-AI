@@ -14,3 +14,4 @@ pip install -r requirements.txt
 ```bash
 streamlit run translator_and_summarizer.py
 ```
+![Demo](Screenshot 2024-04-24 123935.png)
