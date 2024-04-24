@@ -14,4 +14,4 @@ pip install -r requirements.txt
 ```bash
 streamlit run translator and summarizer.py
 ```
-![App Screenshot](Translator_and_summarizer/Screenshot 2024-04-24 123935.png)
+![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/Translator_and_summarizer/Screenshot%202024-04-24%20123935.png)
