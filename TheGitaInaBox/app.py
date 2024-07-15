@@ -4,9 +4,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from border import border_style
 from langchain_groq import ChatGroq
-import os
 import pickle
-from dotenv import load_dotenv
 
 from langchain_groq import ChatGroq
 
