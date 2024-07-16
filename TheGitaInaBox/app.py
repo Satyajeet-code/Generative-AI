@@ -8,7 +8,7 @@ import pickle
 
 from langchain_groq import ChatGroq
 
-groq="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"
+groq=GROQ
 
 
 with open("TheGitaInaBox/vector_index.pkl", "rb") as f:
