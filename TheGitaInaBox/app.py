@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 groq="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"
 
 
-with open("vector_index.pkl", "rb") as f:
+with open("TheGitaInaBox/vector_index.pkl", "rb") as f:
     vectorstore = pickle.load(f)
 st.markdown(border_style, unsafe_allow_html=True)
 st.header("The Gita in a Box 📿")
