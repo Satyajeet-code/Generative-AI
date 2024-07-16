@@ -33,16 +33,17 @@ document_chain=create_stuff_documents_chain(model,prompt)
 retriever=vectorstore.as_retriever() 
 retrieval_chain=create_retrieval_chain(retriever,document_chain)
 question=st.text_input("Ask a Question about the Bhagwad Gita")
-response=retrieval_chain.invoke({"input":question})
-print("------------------------- Answer ---------------------")
-print(response["answer"])
-
-output = response["answer"]
-output=output.replace("*","\n")
-
 if st.button("Get Answer"):
-    if output and question:
-        st.write(f"User:<div class='stWriteWithBorder'>{question}</div>", unsafe_allow_html=True)
+    response=retrieval_chain.invoke({"input":question})
+    print("------------------------- Answer ---------------------")
+    print(response["answer"])
     
-        st.write(f"Bot:<div class='stWriteWithBorder'>{output}</div>", unsafe_allow_html=True)
+    output = response["answer"]
+    output=output.replace("*","\n")
+    
+    
+    
+    st.write(f"User:<div class='stWriteWithBorder'>{question}</div>", unsafe_allow_html=True)
+    
+    st.write(f"Bot:<div class='stWriteWithBorder'>{output}</div>", unsafe_allow_html=True)
 
