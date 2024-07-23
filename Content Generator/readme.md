@@ -1,6 +1,6 @@
 # 🖊️ Content Generator
 
-🌐💬 **Welcome to the Content Generator!** 
+🤖📝 **Welcome to the Content Generator!** 
 Enter the format of the content, the topic, the approximate length and select the emotion the contenet is to be generated in and you will have the content with the appropriate tone and emojis for you to use it anywhere.
 
 
