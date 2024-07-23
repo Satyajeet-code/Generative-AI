@@ -25,7 +25,7 @@ streamlit run app.py
 ```
 
 ## Screenshots:
-![App Screenshot](https://github.com/Satyajeet-code/Alemeno-assignment/blob/main/Alemeno/Screenshot%202024-07-01%20192527.png)
+![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/MultiPDFChat/Screenshot%202024-07-01%20192527.png)
 
 In the above screenshot, the model performs the detailed analysis of the revenues
 
