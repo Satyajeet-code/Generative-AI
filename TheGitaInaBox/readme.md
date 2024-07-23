@@ -17,10 +17,4 @@ python main.py
 ```
 
 ## Screenshots:
-![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/MultiPDFChat/Screenshot%202024-07-01%20192527.png)
-
-In the above screenshot, the model performs the detailed analysis of the revenues
-
-![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/MultiPDFChat/Screenshot%202024-07-01%20193902.png)
-
-In the above screenshot the model answeres 2 questions. The questiuon related to Large Language Models is answered from the Google's pdf and the revenue of Tesla is answered from tesla's PDF.
+![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/TheGitaInaBox/Screenshot%202024-07-24%20015826.png)
