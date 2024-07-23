@@ -16,4 +16,4 @@ pip install -r requirements.txt
 python main.py
 ```
 ### Screenshot:
-![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/ChatWeb/Screenshot%202024-07-23%20151109.png)
+![App Screenshot](https://github.com/Satyajeet-code/Generative-AI/blob/main/Content%20Generator/Screenshot%202024-07-23%20153415.png)
