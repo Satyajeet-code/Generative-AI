@@ -1,6 +1,7 @@
-# ChatWeb
+# 🕸️ChatWeb
 
-🕸️ **Welcome to the ChatWeb!** Enter any website and talk to it! 
+🕸️ **Welcome to the ChatWeb!** 
+Enter any website and talk to it! 
 
 
 ## Usage
