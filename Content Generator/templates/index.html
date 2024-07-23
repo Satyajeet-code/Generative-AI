@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Generator</title>
+</head>
+<body>
+  <h1>Content Generator 🤖📝</h1>
+  <form method="POST" action="/">
+    <label for="format">Enter The format:</label><br>
+    <input type="text" id="format" name="format"><br><br>
+
+    <label for="topic">Ask the topic:</label><br>
+    <input type="text" id="topic" name="topic"><br><br>
+
+    <label for="length">Enter The length:</label><br>
+    <input type="text" id="length" name="length"><br><br>
+
+    <label for="emotion">Select the emotion:</label><br>
+    <select id="emotion" name="emotion">
+      <option value="Neutral">Neutral</option>
+      <option value="Formal">Formal</option>
+      <option value="Happy">Happy</option>
+      <option value="Sad">Sad</option>
+    </select>
+    <br><br>
+    
+    <button type="submit">Generate</button>
+  </form>
+
+  {% for key, value in data.items() %}
+    <h4>{{ key }}</h4>
+    <p>{{ value }}</p>
+  {% endfor %}
+</body>
+</html>
