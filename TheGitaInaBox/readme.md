@@ -1,7 +1,7 @@
 # 📿 TheGitaInaBox
 
 🙏 **Welcome to the TheGitaInaBox!** 
-Ask anything about the Bhagwad Gita. The entire konwledge of Gita in your fingertips. This project uses the orginal 1972 edition of Bhagwad-Gita As It Is as the knowledge base.
+Ask anything about the Bhagwad Gita. The entire konwledge of Gita in your fingertips. This project uses the original 1972 edition of Bhagwad-Gita As It Is as the knowledge base.
 
 
 ## Usage
