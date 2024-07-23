@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Gita in a Box</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="container-fluid">
+  <header>The Gita in a Box 📿</header>
+
+
+<div id ="bodydiv">
+  {% for question, answer in data_list %}
+  <div>
+    <h5> <b>User:</b> </h5>
+    <h5 id="output">{{question}}</h5>
+  
+    <h5> <b>Bot:</b> </h5>
+    <h5 id="output">{{answer}}</h5>
+  </div>
+    <br>
+  {% endfor %}
+</div>
+  <footer>
+  <form method="POST" action="/">
+    <input class="form-control" type="textarea" id="question" name="question" placeholder="Ask anything">
+    <button type="submit" class="btn btn-outline-dark">💭</button>
+  </form>
+</footer>
+</body>
+</html>
