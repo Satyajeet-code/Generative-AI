@@ -1,0 +1,5 @@
+langchain==0.1.12
+flask==3.0.3
+beautifulsoup4==4.12.3
+langchain_community==0.0.28
+langchain_groq==0.1.3

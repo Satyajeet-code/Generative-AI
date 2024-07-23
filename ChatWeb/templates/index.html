@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatWeb</title>
+</head>
+<body>
+  <h1>ChatWeb🕸️🌐💬</h1>
+  <form method="POST" action="/">
+    <label for="url">Enter The url:</label><br>
+    <input type="text" id="url" name="url"><br><br>
+    <label for="question">Ask the question:</label><br>
+    <input type="text" id="question" name="question"><br><br>
+    <button type="submit">Generate</button>
+  </form>
+  <h4> The url:</h4>
+  <p id="output" class="card">{{url}}</p>
+  <h4> The question:</h4>
+  <p id="output" class="card">{{question}}</p>
+  <h4> The Response:</h4>
+  <p id="output" class="card">{{output}}</p>
+</body>
+</html>
