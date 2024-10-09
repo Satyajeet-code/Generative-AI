@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcastify - Upload PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Podcastify</h1>
+        <div class="upload-area">
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                <input type="text" name="podcast_name" placeholder="Enter file name" class="text-input" required>
+                <div class="file-input-wrapper">
+                    <button class="upload-button" type="button">Choose File</button>
+                    <input type="file" name="file" accept=".pdf" required>
+                </div>
+                <br><br>
+                <button type="submit" class="upload-button">Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
