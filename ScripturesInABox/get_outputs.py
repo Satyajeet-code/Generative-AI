@@ -19,15 +19,23 @@ import warnings
 warnings.filterwarnings("ignore")
 
 llm=ChatGroq(
-     api_key="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",
+     api_key="",
      #model='llama3-8b-8192',
      model='llama-3.1-70b-versatile',
-     temperature=1
+     temperature=0.5
+     #model='mixtral-8x7b-32768',
+ )
+
+llm_temp_0=ChatGroq(
+     api_key="",
+     #model='llama3-8b-8192',
+     model='llama-3.1-70b-versatile',
+     temperature=0
      #model='mixtral-8x7b-32768',
  )
 
 llm_8b=ChatGroq(
-     api_key="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",
+     api_key="",
      #model='llama3-8b-8192',
      model='llama3-8b-8192',
      temperature=0
@@ -147,7 +155,7 @@ def getting_final_output(question,vectorstore,docstore,splitters):
   for que in all_questions:
       output=get_output(big_chunks_retriever,que,llm)
       outputs.append(output)
-  summary=summarise(outputs,llm)
+  summary=summarise(outputs,llm_temp_0)
   output_list.append(summary)
   
 
