@@ -1,7 +1,7 @@
-# 📿 TheGitaInaBox
+# 📚 ScripturesInABox
 
-🙏 **Welcome to the TheGitaInaBox!** 
-Ask anything about the Bhagwad Gita. The entire konwledge of Gita in your fingertips. This project uses the original 1972 edition of Bhagwad-Gita As It Is as the knowledge base.
+🙏 **Welcome to the ScripturesInABox!** 
+Ask anything about the Bhagwad Gita, the Quran and the Bible. Have any problems? Just ask them out. The entire konwledge of the Gita the Quran and the Biblein your fingertips. This project uses the english translations of the respective scriptures as the knowledge base.
 
 
 ## Usage
