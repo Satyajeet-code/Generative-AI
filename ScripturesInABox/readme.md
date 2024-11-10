@@ -13,7 +13,7 @@ pip install -r requirements.txt
 2. Execute `main.py` to open up the UI using the following command:
 
 ```bash
-python main.py
+python app.py
 ```
 
 ## Screenshots:
