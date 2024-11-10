@@ -15,7 +15,7 @@ import re
 import os
 
 llm=ChatGroq(
-     api_key="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",
+     api_key="",
      #model='llama3-8b-8192',
      model='llama-3.1-70b-versatile',
      temperature=0.0
