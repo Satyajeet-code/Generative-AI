@@ -93,10 +93,10 @@ def get_output(big_chunks_retriever,question,llm,):
 
     return output
 
-def generate_questions(question,llm):
+def generate_questions(question,llm, scripture_name):
     question_generation_prompt = """
-    Generate 3 similar questions to the question given below. Make sure the generated questions cover multiple aspects of the question. The questions should be in lowercase.
-    It is really important that the generated questions revolve around the asked question and are very closely related to the asked question.
+    Generate 3 similar questions in context with {scripture_name} to the question given below. Make sure the generated questions cover multiple aspects of the question. The questions should be in lowercase.
+    It is really important that the generated questions revolve around the asked question and take into account {scripture_name} and are very closely related to the asked question.
     <Question> 
     {question}
     </Question>
@@ -110,7 +110,7 @@ def generate_questions(question,llm):
     </example>
     """
 
-    prompt = PromptTemplate(input_variables=["question"], template=question_generation_prompt)
+    prompt = PromptTemplate(input_variables=["question","scripture_name"], template=question_generation_prompt)
     llm_chain = LLMChain(llm=llm, prompt=prompt)
 
     questions=llm_chain.run(question=question)
