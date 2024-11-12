@@ -5,12 +5,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 
 from langchain_groq import ChatGroq
-import os
-import re
-from dotenv import load_dotenv
-from langchain.vectorstores import FAISS
-from langchain.storage import InMemoryStore
-from langchain.retrievers import ParentDocumentRetriever
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import pickle
 
