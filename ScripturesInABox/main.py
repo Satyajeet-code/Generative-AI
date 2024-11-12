@@ -1,24 +1,10 @@
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
-import pickle
-from langchain.vectorstores import FAISS
-from langchain.storage import InMemoryStore
-from langchain.retrievers import ParentDocumentRetriever
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from flask import Flask, render_template, request, session
-from langchain_groq import ChatGroq
 import os
 import re
-from dotenv import load_dotenv
-from get_outputs import generate_questions,get_output,summarise,getting_final_output,load_vector_store, llm, llm_8b
+from get_outputs import getting_final_output
 
 import warnings
-
 warnings.filterwarnings("ignore")
-load_dotenv()
-
-groq=os.getenv('GROQ_API_KEY')
 
 
 app = Flask(__name__)
@@ -44,7 +30,7 @@ def for_gita():
        question="Default question: What is the Gita?"
     question_list.append(question)
     try:
-      output=getting_final_output(question,"Gita_vectorstore","Gita_docstore","Gita_splitters")
+      output=getting_final_output(question,"Gita_vectorstore","Gita_docstore","Gita_splitters", "The Gita")
       session["gita_history"].append({"question": question, "answer": output[-1]})
       session.modified = True
     except Exception as e:
@@ -67,7 +53,7 @@ def for_quran():
        question="Default question: What is the quran?"
     question_list.append(question)
     try:
-      output = getting_final_output(question, "TheQuran_vectorstore", "TheQuran_docstore", "TheQuran_splitters")
+      output = getting_final_output(question, "TheQuran_vectorstore", "TheQuran_docstore", "TheQuran_splitters", "The Quran")
       session["quran_history"].append({"question": question, "answer": output[-1]})
       session.modified = True 
     except Exception as e:
@@ -91,7 +77,7 @@ def for_bible():
        question="Default question: What is the quran?"
     question_list.append(question)
     try:
-      output = getting_final_output(question, "TheBible_vectorstore", "TheBible_docstore", "TheBible_splitters")
+      output = getting_final_output(question, "TheBible_vectorstore", "TheBible_docstore", "TheBible_splitters", "The Bible")
       session["bible_history"].append({"question": question, "answer": output[-1]})
       session.modified = True 
     except Exception as e:
