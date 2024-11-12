@@ -147,10 +147,10 @@ def summarise(outputs,llm):
     summary=llm_chain.run(context=outputs)
     return summary
 
-def getting_final_output(question,vectorstore,docstore,splitters):
+def getting_final_output(question,vectorstore,docstore,splitters,scripture_name):
   output_list=[]
   big_chunks_retriever=load_vector_store(vectorstore,docstore,splitters)
-  all_questions=generate_questions(question,llm_8b)
+  all_questions=generate_questions(question,llm_8b,scripture_name)
   outputs=[]
   for que in all_questions:
       output=get_output(big_chunks_retriever,que,llm)
