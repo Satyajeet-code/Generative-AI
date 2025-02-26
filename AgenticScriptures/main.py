@@ -23,24 +23,24 @@ question = st.text_input("Ask a question about the Gita, Quran and Bible:", "")
 
 
 
-embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="AIzaSyC-gIdQDC9Ojn3mLJTpYEb3M6an72qf_Rg")
+embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-combined_index = faiss.read_index("combined_vectors/index.faiss")
-with open("combined_vectors/index.pkl", "rb") as f:
+combined_index = faiss.read_index("index.faiss")
+with open("index.pkl", "rb") as f:
     combined_metadata = pickle.load(f)
 
-gita_index= faiss.read_index("single_vectors/gita/index.faiss")
-with open("single_vectors/gita/index.pkl", "rb") as f:
+gita_index= faiss.read_index("gita/index.faiss")
+with open("gita/index.pkl", "rb") as f:
     gita_metadata = pickle.load(f)
 
 
-bible_index = faiss.read_index("single_vectors/bible/index.faiss")
-with open("single_vectors/bible/index.pkl", "rb") as f:
+bible_index = faiss.read_index("bible/index.faiss")
+with open("bible/index.pkl", "rb") as f:
     bible_metadata = pickle.load(f)
 
 
-quran_index = faiss.read_index("single_vectors/quran/index.faiss")
-with open("single_vectors/quran/index.pkl", "rb") as f:
+quran_index = faiss.read_index("quran/index.faiss")
+with open("quran/index.pkl", "rb") as f:
    quran_metadata = pickle.load(f)
 
 
@@ -78,7 +78,6 @@ class AgentState(TypedDict):
 
 
 llm = ChatGroq(
-    api_key="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",
     model='llama-3.3-70b-versatile',
     temperature=0
 )
