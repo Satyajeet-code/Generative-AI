@@ -13,7 +13,13 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 
 import streamlit as st
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+google_api_key=os.getenv("GOOGLE_API_KEY")
+groq_api_key=os.getenv("GROQ_API_KEY")
 if 'history' not in st.session_state:
     st.session_state.history = []
 
@@ -23,24 +29,24 @@ question = st.text_input("Ask a question about the Gita, Quran and Bible:", "")
 
 
 
-embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key=google_api_key)
 
-combined_index = faiss.read_index("index.faiss")
-with open("index.pkl", "rb") as f:
+combined_index = faiss.read_index("combined_vectors/index.faiss")
+with open("combined_vectors/index.pkl", "rb") as f:
     combined_metadata = pickle.load(f)
 
-gita_index= faiss.read_index("gita/index.faiss")
-with open("gita/index.pkl", "rb") as f:
+gita_index= faiss.read_index("single_vectors/gita/index.faiss")
+with open("single_vectors/gita/index.pkl", "rb") as f:
     gita_metadata = pickle.load(f)
 
 
-bible_index = faiss.read_index("bible/index.faiss")
-with open("bible/index.pkl", "rb") as f:
+bible_index = faiss.read_index("single_vectors/bible/index.faiss")
+with open("single_vectors/bible/index.pkl", "rb") as f:
     bible_metadata = pickle.load(f)
 
 
-quran_index = faiss.read_index("quran/index.faiss")
-with open("quran/index.pkl", "rb") as f:
+quran_index = faiss.read_index("single_vectors/quran/index.faiss")
+with open("single_vectors/quran/index.pkl", "rb") as f:
    quran_metadata = pickle.load(f)
 
 
@@ -78,6 +84,7 @@ class AgentState(TypedDict):
 
 
 llm = ChatGroq(
+    api_key=groq_api_key,
     model='llama-3.3-70b-versatile',
     temperature=0
 )
@@ -182,16 +189,16 @@ def get_bible_results(state):
 
 workflows = StateGraph(AgentState)
 
-workflows.add_node("agent", function_1)
+workflows.add_node("Router", function_1)
 workflows.add_node("Combined_results", get_combined_results)
 workflows.add_node("Gita_results", get_gita_results)
 workflows.add_node("Quran_results", get_quran_results)
 workflows.add_node("Bible_results", get_bible_results)
 
-workflows.set_entry_point("agent")
+workflows.set_entry_point("Router")
 
 workflows.add_conditional_edges(
-    "agent",
+    "Router",
     router,
     {
         "combined": "Combined_results",
@@ -206,11 +213,11 @@ workflows.add_edge("Gita_results", END)
 workflows.add_edge("Quran_results", END)
 workflows.add_edge("Bible_results", END)
 
-app4 = workflows.compile()
+app = workflows.compile()
 if st.button("Submit") and question:
     inputs = {"messages": [question]}
 
-    output = app4.invoke(inputs)
+    output = app.invoke(inputs)
     answer= output["messages"][-1].split("|")[0]
     sources=output["messages"][-1].split("|")[-1]
     st.session_state.history.append((question, answer))
