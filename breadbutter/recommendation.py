@@ -160,8 +160,10 @@ def merge_and_format_results(rule_based_results, llm_result_name, llm_result_rea
         'score': llm_total_score,
         'justification': llm_result_reasons
     }
-
-    if len(formatted_results)< 3 and formatted_results[-1]["name"].lower() != llm_result_name.lower():
+    if len(formatted_results) == 0:
+        formatted_results.append(llm_entry)
+        
+    elif len(formatted_results)< 3 and formatted_results[-1]["name"].lower() != llm_result_name.lower():
      
         formatted_results.append(llm_entry)
     elif len(formatted_results) == 3 and formatted_results[-1]["name"].lower() != llm_result_name.lower():
