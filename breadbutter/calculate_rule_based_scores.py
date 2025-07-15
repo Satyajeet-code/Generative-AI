@@ -21,7 +21,7 @@ def calculate_location_score(talent,brief):
             reasons.append("The talent doesn't travel")
         return score, reasons
     else:
-        return 0,"location not provided"
+        return 0,["location not provided"]
 
 def calculate_budget_score(talent, brief):
     score = 0
