@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talent Recommender BreadButter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find the Right Talent</h1>
+        <form method="POST">
+            <textarea name="user_query" placeholder="Enter your query here..."></textarea>
+            <button type="submit">Process</button>
+        </form>
+{% if recommendations %}
+    {% if recommendations is string %}
+        <div class="result">
+            <p>{{ recommendations }}</p>
+        </div>
+    {% else %}
+        <div class="result">
+            <h2>Recommendations:</h2>
+            <ol>
+                {% for r in recommendations %}
+                <li>
+                    <strong>{{ r.name }}</strong><br>
+                    <strong>Score:</strong> {{ r.score }}<br>
+                    <strong>Justification:</strong>
+                    <ul>
+                        {% for sentence in r.justification.split('.') %}
+                            {% if sentence.strip() %}
+                                <li>{{ sentence.strip() }}.</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+{% endif %}
+    </div>
+</body>
+</html>
