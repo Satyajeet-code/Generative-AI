@@ -176,7 +176,7 @@ def get_final_recommendation(user_query, conn,cursor,llm,model_name):
 
     gig_data =write_gig_to_db(user_query, conn,cursor,llm)
 
-    if gig_data["category"]!=None:
+    if gig_data.get("category")!=None:
         results=get_talents(gig_data,cursor)
 
         scored_talent=calculate_rule_based(results, gig_data)
