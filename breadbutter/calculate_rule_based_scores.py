@@ -34,7 +34,6 @@ def calculate_budget_score(talent, brief):
     gig_min = brief.get("min_budget")
     gig_max = brief.get("max_budget")
 
-    # Normalize gig budget
     if gig_min is None and gig_max is not None:
         gig_min = int(gig_max * 0.7)
         reasons.append(f"Min budget not provided, assumed as 70% of max: ₹{gig_min}.")
@@ -91,8 +90,7 @@ def calculate_rule_based(talents, brief):
             "reasons": reasons
         })
 
-    # Sort by score in descending order
     scored_talents.sort(key=lambda x: x["total_score"], reverse=True)
 
-    # Return top 3
+ 
     return scored_talents[:3]
