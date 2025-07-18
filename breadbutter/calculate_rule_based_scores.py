@@ -9,7 +9,7 @@ def calculate_location_score(talent,brief):
             score += 25
             reasons.append("The Gig's and the talent's locations match exactly")
         elif talent['can_travel']:
-            distance = get_dist(talent['city'].lower(), brief['location'].lower())  # use API or custom mapping
+            distance = get_dist(talent['city'].lower(), brief['location'].lower())  
             if distance <= talent['max_travel_distance_km']+10:
                 score += 20
                 reasons.append("The talet can travel to gig's location")
