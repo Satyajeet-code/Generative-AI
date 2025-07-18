@@ -41,7 +41,7 @@ def llm_filter_prompt():
         - Summaries of the top 3 matched talents
 
         Your task is to:
-        1. Carefully analyze the brief and talent summaries. Stick to the gig brief. Stick to whateevr is mentioned, sometimes the prices and other deatils may not be mentioned. Do not fill in these missing details
+        1. Carefully analyze the brief and talent summaries. Stick to the gig brief. Stick to whatever is mentioned, sometimes the prices and other deatils may not be mentioned. Do not fill in these missing details
         2. You are not concerend about the location. Hence never speak or consider about location.
         3. Recommend only 1 talent out of the 3
         4. Justify your choice across key dimensions:
