@@ -1,27 +1,28 @@
 from get_distance import get_dist
 
-def calculate_location_score(talent,brief):
+def calculate_location_score(talent, brief):
     score = 0
     reasons = []
     if brief['location']:
-        # Location score
         if talent['city'].lower() == brief['location'].lower():
             score += 25
             reasons.append("The Gig's and the talent's locations match exactly")
         elif talent['can_travel']:
             distance = get_dist(talent['city'].lower(), brief['location'].lower())  
-            if distance <= talent['max_travel_distance_km']+10:
+            if distance <= talent['max_travel_distance_km'] + 10:
                 score += 20
-                reasons.append("The talet can travel to gig's location")
+                reasons.append("The talent can travel to gig's location")
             else:
-                score-=10
+                score -= 10
                 reasons.append("The talent can't travel to the gig's location")
         else:
             score -= 10
             reasons.append("The talent doesn't travel")
-        return score, reasons
     else:
-        return 0,["location not provided"]
+        score = 0
+        reasons = ["Location not provided."]
+    
+    return score, reasons
 
 def calculate_budget_score(talent, brief):
     score = 0
